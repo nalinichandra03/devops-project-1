@@ -1,5 +1,9 @@
 pipeline {
-    agent any
+    agent {
+      docker {
+        image 'hashicorp/terraform:latest'
+      }
+    }
 
     parameters {
             booleanParam(name: 'PLAN_TERRAFORM', defaultValue: false, description: 'Check to plan Terraform changes')
